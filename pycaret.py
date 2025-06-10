@@ -113,7 +113,7 @@ save_model(model, 'final_lr_model')
 # Make predictions on new data.
 predictions = predict_model(model, data=new_data)
 
-# Get feature importance as a pandas DataFrame
+# Get feature importance as a pandas DataFrame.  Alternatively, use model.__dict__.keys()
 feature_importance = get_model(dataset, 'feature_importance')
 feature_names = model.feature_names_
 feature_importance_values = model.feature_importances_
