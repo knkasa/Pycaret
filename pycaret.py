@@ -140,7 +140,7 @@ plot_model(
     ) 
 plot_model(model, plot='error')  # x-axis(true value) y-axis(prediction).  The blue points and "best fit" line needs to be close to "indentity" line.
 plot_model(model, plot='feature')  # shows top 10 feature importance.  Choose 'feature_all' to plot all.
-interpret_model(model, plot='summary')
+interpret_model(model, plot='summary')  # produce shap plot.  Only works for tree-based model.
 
 plot_model(model, plot='pipeline')   # shows drawing of the preprocesssing pipeline.
 plot_model(model, plot='cooks')   # Cooks distance plot.
