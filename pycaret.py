@@ -129,6 +129,14 @@ pool = cb.Pool(dataset.loc[:100])  # Create a Pool object
 val_loss = model.eval_metrics(pool, metrics=["RMSE"])
 rmse_value = val_loss["RMSE"]
 
+#========= stacking ensemble ==============
+tuned_rf = tune_model(create_model('rf'))
+tuned_gbr = tune_model(create_model('gbr'))
+
+# Then stack tuned models
+stacked = stack_models([tuned_rf, tuned_gbr])
+
+
 #================ Plotting =============================================================
 # Result plotting.  
 # https://qiita.com/ground0state/items/57e565b23770e5a323e9
@@ -138,6 +146,7 @@ plot_model(
     scale=1,
     save=False,   # save figure.
     ) 
+
 plot_model(model, plot='error')  # x-axis(true value) y-axis(prediction).  The blue points and "best fit" line needs to be close to "indentity" line.
 plot_model(model, plot='feature')  # shows top 10 feature importance.  Choose 'feature_all' to plot all.
 interpret_model(model, plot='summary')  # produce shap plot.  Only works for tree-based model.
