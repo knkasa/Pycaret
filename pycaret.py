@@ -58,6 +58,7 @@ model_setup = setup(
     # Imputation
     imputation_type=None, #simple or iterative
     numeric_imputation='mean',
+    categorical_imputation='mode',
     numeric_iterative_imputer='lightgbm',
     categorical_iterative_imputer='lightgbm',
     
