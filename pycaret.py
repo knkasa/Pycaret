@@ -54,6 +54,12 @@ model_setup = setup(
     transformation_method='yeo-johnson',  # others are 'quantile'.  
     normalize=False,
     normalize_method='zscore',   # minmax, robust, maxabs are available.
+
+    # Imputation
+    imputation_type=None, #simple or iterative
+    numeric_imputation='mean',
+    numeric_iterative_imputer='lightgbm',
+    categorical_iterative_imputer='lightgbm',
     
     # Feature selections.  
     pca=False,
