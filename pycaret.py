@@ -122,7 +122,7 @@ predictions = predict_model(model, data=new_data)
 
 # Get feature importance as a pandas DataFrame.  Alternatively, use model.__dict__.keys()
 feature_importance = get_model(dataset, 'feature_importance')
-feature_names = model.feature_names_
+feature_names = model.feature_name_
 feature_importance_values = model.feature_importances_
 
 # Get parameters of the model like depth, learning_rate.
